@@ -18,30 +18,30 @@ public class WorkController {
     WorkService workService;
 
     @PostMapping("/works")
-    public ResponseEntity<WorkEntity> createTutorial(@RequestBody @Valid WorkReq workReq) {
+    public ResponseEntity<WorkEntity> createWork(@RequestBody @Valid WorkReq workReq) {
         ResponseEntity<WorkEntity> workEntityResponseEntity;
         workEntityResponseEntity   = workService.save(workReq);
         return workEntityResponseEntity;
     }
 
     @PutMapping("/works/{id}")
-    public ResponseEntity<WorkEntity> updateTutorial(@PathVariable("id") long id, @RequestBody @Valid WorkReq workReq) {
+    public ResponseEntity<WorkEntity> updateWork(@PathVariable("id") long id, @RequestBody @Valid WorkReq workReq) {
         ResponseEntity<WorkEntity> workEntityResponseEntity;
         workEntityResponseEntity   = workService.update(id,workReq);
         return workEntityResponseEntity;
     }
 
     @DeleteMapping("/works/{id}")
-    public ResponseEntity<WorkEntity> deleteTutorial(@PathVariable("id") long id) {
+    public ResponseEntity<WorkEntity> deleteWork(@PathVariable("id") long id) {
         ResponseEntity<WorkEntity> workEntityResponseEntity;
         workEntityResponseEntity   = workService.delete(id);
         return workEntityResponseEntity;
     }
 
     @GetMapping("/works")
-    public List<WorkEntity> updateTutorial(@RequestParam FilterReq filterReq) {
+    public List<WorkEntity> updateWork(@RequestParam FilterReq filterReq) {
         List<WorkEntity> list;
-        list   = workService.filter(filterReq);
+        list = workService.filter(filterReq);
         return list;
     }
 
